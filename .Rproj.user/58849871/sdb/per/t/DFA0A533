@@ -1,7 +1,7 @@
 {
     "contents" : "complete <- function (directory, id =1:332) {\n  \n  ###STEP 1 Loading of DATA based on Directory Folder\n  filenamelist <-list.files(directory,full.names = TRUE)\n  \n  \n  \n  #   ###Using alapply and read.csv to apply all data into pollution data\n  pollutiondatatemp <- lapply(filenamelist, read.csv,header=T)\n  \n  ###Data is loaded in a list, i will combine them into 1 table\n  pollutiondata <-ldply(pollutiondatatemp, rbind)\n  #     \n  ## BASED ON THE DATA FRAME ONLY SELECT THOSE ID I AM INTERESTED IN\n  \n  cALCULATIONDATA <-pollutiondata[pollutiondata$ID %in% id,]\n  \n  ##keeping only data that is complete\n  \n  COMPLETEDATA<-na.omit(cALCULATIONDATA)\n  \n  ##counting based on ID\n  FINAL<-table(COMPLETEDATA$ID)\n  \n\n  print(head(FINAL))\n\n}",
     "created" : 1453578158794.000,
-    "dirty" : false,
+    "dirty" : true,
     "encoding" : "UTF-8",
     "folds" : "",
     "hash" : "2851839760",
