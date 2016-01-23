@@ -1,0 +1,17 @@
+{
+    "contents" : "corr <- function(directory, threshold =0) {\n  \n  ###STEP 1 Loading of DATA based on Directory Folder\n  filenamelist <-list.files(directory,full.names = TRUE)\n  \n  #   ###Using alapply and read.csv to apply all data into pollution data\n  pollutiondatatemp <- lapply(filenamelist, read.csv,header=T)\n  \n  ###Data is loaded in a list, i will combine them into 1 table\n  pollutiondata <-ldply(pollutiondatatemp, rbind)\n  \n  \n  ##keeping only data that is complete\n  \n COMPLETEDATA<-na.omit(pollutiondata)\n  \n  ##counting based on ID\n IDGROUP <-sqldf('SELECT count(*), ID from COMPLETEDATA Group BY ID')\n IDLIMIT <-IDGROUP[(IDGROUP$`count(*)`> threshold),]\n  \n return(IDLIMIT)\n  ###selecting only those with complete cases more than certain count\n  \n  \n  \n  \n  \n}",
+    "created" : 1453578150948.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2641123590",
+    "id" : "53A97EC8",
+    "lastKnownWriteTime" : 1453577886,
+    "path" : "C:/Users/Ryan/ProJECT/R/Week2Assignment/corr.R",
+    "project_path" : "Week2Assignment/corr.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : true,
+    "type" : "r_source"
+}
