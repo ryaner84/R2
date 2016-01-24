@@ -1,6 +1,8 @@
 pollutantmean <- function(directory, pollutant, id = 1:332) {
   
-  ###STEP 1 Loading of DATA based on Directory Folder
+  setwd("C:/Users/Ryan/ProJECT/R/Week2Assignment")
+  
+    ###STEP 1 Loading of DATA based on Directory Folder
   filenamelist <-list.files(directory,full.names = TRUE)
   
 

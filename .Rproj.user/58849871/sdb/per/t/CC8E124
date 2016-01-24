@@ -1,17 +1,17 @@
 {
-    "contents" : "pollutantmean <- function(directory, pollutant, id = 1:332) {\n  \n  ###STEP 1 Loading of DATA based on Directory Folder\n  filenamelist <-list.files(directory,full.names = TRUE)\n  \n\n  \n#   ###Using alapply and read.csv to apply all data into pollution data\n  pollutiondatatemp <- lapply(filenamelist, read.csv,header=T)\n  \n   ###Data is loaded in a list, i will combine them into 1 table\n  pollutiondata <-ldply(pollutiondatatemp, rbind)\n#     \n  ## BASED ON THE DATA FRAME ONLY SELECT THOSE ID I AM INTERESTED IN\n  \n  cALCULATIONDATA <-pollutiondata[pollutiondata$ID %in% id,]\n\n  \n\n  #calculation of mean based on the selected data only\n  \n\n  mean(cALCULATIONDATA[[pollutant]], na.rm=TRUE)\n  \n  \n \n}\n  \n\n\n  \n",
+    "contents" : "pollutantmean <- function(directory, pollutant, id = 1:332) {\n  \n  setwd(\"C:/Users/Ryan/ProJECT/R/Week2Assignment\")\n  \n    ###STEP 1 Loading of DATA based on Directory Folder\n  filenamelist <-list.files(directory,full.names = TRUE)\n  \n\n  \n#   ###Using alapply and read.csv to apply all data into pollution data\n  pollutiondatatemp <- lapply(filenamelist, read.csv,header=T)\n  \n   ###Data is loaded in a list, i will combine them into 1 table\n  pollutiondata <-ldply(pollutiondatatemp, rbind)\n#     \n  ## BASED ON THE DATA FRAME ONLY SELECT THOSE ID I AM INTERESTED IN\n  \n  cALCULATIONDATA <-pollutiondata[pollutiondata$ID %in% id,]\n\n  \n\n  #calculation of mean based on the selected data only\n  \n\n  mean(cALCULATIONDATA[[pollutant]], na.rm=TRUE)\n  \n  \n \n}\n  \n\n\n  \n",
     "created" : 1453578154229.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "4151880806",
+    "hash" : "3502162913",
     "id" : "CC8E124",
-    "lastKnownWriteTime" : 1453531011,
+    "lastKnownWriteTime" : 1453610437,
     "path" : "C:/Users/Ryan/ProJECT/R/Week2Assignment/pollutantmean.R",
     "project_path" : "Week2Assignment/pollutantmean.R",
     "properties" : {
     },
-    "relative_order" : 3,
+    "relative_order" : 1,
     "source_on_save" : true,
     "type" : "r_source"
 }

@@ -1,28 +1,23 @@
-corr <- function(directory, threshold =0) {
-  
-  ###STEP 1 Loading of DATA based on Directory Folder
-  filenamelist <-list.files(directory,full.names = TRUE)
-  
-  #   ###Using alapply and read.csv to apply all data into pollution data
-  pollutiondatatemp <- lapply(filenamelist, read.csv,header=T)
-  
-  ###Data is loaded in a list, i will combine them into 1 table
-  pollutiondata <-ldply(pollutiondatatemp, rbind)
-  
-  
-  ##keeping only data that is complete
-  
- COMPLETEDATA<-na.omit(pollutiondata)
-  
-  ##counting based on ID
- IDGROUP <-sqldf('SELECT count(*), ID from COMPLETEDATA Group BY ID')
- IDLIMIT <-IDGROUP[(IDGROUP$`count(*)`> threshold),]
-  
- return(IDLIMIT)
-  ###selecting only those with complete cases more than certain count
-  
-  
-  
-  
-  
+      corr <- function(directory,threshold = 0) {
+        setwd("C:/Users/Ryan/ProJECT/R/Week2Assignment")
+        
+            df = data.frame()
+            corr_vecctor <- c()
+                
+            
+            
+for( fil in dir(directory)){
+    
+      file = paste(directory,fil,sep = '/')
+      df1  = read.csv(file)
+          COMPLETEcdf  <- df1[complete.cases(df1),]
+          ROWSCOUNT <- nrow(COMPLETEcdf)
+    
+    if (ROWSCOUNT > threshold){
+      cr <- cor(COMPLETEcdf[,'sulfate'],COMPLETEcdf[,'nitrate'])
+      corr_vecctor <- c(corr_vecctor,cr)
+    }
+    
+  }
+  return(corr_vecctor)
 }

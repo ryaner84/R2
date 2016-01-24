@@ -1,5 +1,8 @@
 complete <- function (directory, id =1:332) {
+ 
   
+  setwd("C:/Users/Ryan/ProJECT/R/Week2Assignment")
+   
   ###STEP 1 Loading of DATA based on Directory Folder
   filenamelist <-list.files(directory,full.names = TRUE)
   
@@ -9,7 +12,8 @@ complete <- function (directory, id =1:332) {
   pollutiondatatemp <- lapply(filenamelist, read.csv,header=T)
   
   ###Data is loaded in a list, i will combine them into 1 table
-  pollutiondata <-ldply(pollutiondatatemp, rbind)
+  library(plyr)
+   pollutiondata <-ldply(pollutiondatatemp, rbind)
   #     
   ## BASED ON THE DATA FRAME ONLY SELECT THOSE ID I AM INTERESTED IN
   
