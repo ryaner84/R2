@@ -1,0 +1,25 @@
+{
+    "contents" : "",
+    "created" : 1453994756323.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "1067AA4C",
+    "lastKnownWriteTime" : 31244048835477601,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "qz6yne77b0",
+        "caption" : "iris",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=iris&cache_key=qz6yne77b0",
+        "displayedObservations" : "150",
+        "environment" : "",
+        "object" : "iris",
+        "totalObservations" : "150",
+        "variables" : "5"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}

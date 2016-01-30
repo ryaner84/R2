@@ -1,4 +1,4 @@
-pollutantmean <- function(directory, pollutant, id = 1:332) {
+Ryapollutantmean <- function(directory, pollutant, id = 1:332) {
   
   setwd("C:/Users/Ryan/ProJECT/R/Week2Assignment")
   
